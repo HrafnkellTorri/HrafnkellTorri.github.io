@@ -211,6 +211,7 @@ function draw()
     time1(); 
     drawControlers();
     drawDeathscreen();
+    console.log(timer1);
     }
     else if(P1lifes === 0)
     {
