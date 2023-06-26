@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="mainstyle.css">
-</head>
-<body>
-
 <br><br><br>
 <div>
-<p><h1>Ball Mania</h1></p>
-<a button href="Singleplayer.html" style="text-decoration: none"><button class="button"> <p>SINGLE PLAYER</p></button></a>
-<a href="Twoplayer.html" style="text-decoration: none"><button id="multiplayer"><p>TWO PLAYER</p></button></a>
-<a href="Instructions.html" style="text-decoration: none"><button id="multiplayer"><p>INSTRUCTIONS</p></button></a>
+  <p><h1>Ball Mania</h1></p>
+  <div id="unityContainer"></div>
+  <a href="Singleplayer.html" style="text-decoration: none"><button class="button"> <p>SINGLE PLAYER</p></button></a>
+  <a href="Twoplayer.html" style="text-decoration: none"><button id="multiplayer"><p>TWO PLAYER</p></button></a>
+  <a href="Instructions.html" style="text-decoration: none"><button id="multiplayer"><p>INSTRUCTIONS</p></button></a>
 
-<audio id="audio" controls="audio" onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 300)" loop>
-  <source src="Menu.wav" type="audio/wav">
-</audio>
-
+  <audio id="audio" controls="audio" onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 300)" loop>
+    <source src="Menu.wav" type="audio/wav">
+  </audio>
 </div>
-</body>
-</html>
+<script src="New folder/UnityLoader.js"></script>
+<script>
+  const unityContainer = document.getElementById('unityContainer');
+  const gameScript = document.createElement('script');
+  gameScript.src = 'New folder/YourGameName.js';
+  gameScript.onload = () => {
+    const unityInstance = UnityLoader.instantiate("unityContainer", "New folder/YourGameName.json");
+  };
+  document.body.appendChild(gameScript);
+</script>
+Make sure to replace 'New folder/YourGameName.js' and 'New folder/YourGameName.json' with the appropriate paths to your Unity game build files.
+
+Save the modified HTML file and ensure that the "New folder" containing your Unity game build files is in the same directory as the updated HTML file.
+
+Open the HTML file in a web browser, and it should display your Unity game within the unityContainer div, alongside the other buttons and audio elements.
+
+
+
+
+
+
